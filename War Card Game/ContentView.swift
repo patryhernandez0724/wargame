@@ -9,12 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        
         ZStack{
-            Color(.systemGreen)
+        Image("background-plain")
+                .resizable()
                 .ignoresSafeArea()
-            VStack(spacing: 40.0) {
+            VStack {
+                Spacer()
                 Image("logo")
+                Spacer()
+                
                 HStack{
                     Spacer()
                     Image("card2")
@@ -22,22 +25,33 @@ struct ContentView: View {
                     Image("card3")
                     Spacer()
                 }
+                Spacer()
+                
                 Image("button")
+                Spacer()
                 HStack{
                     Spacer()
-                    Text("Player")
+                    VStack{
+                        
+                        Text("Player")
+                            .padding(.bottom, 10.0)
+                                              Text("0")
+                            .font(.largeTitle)
+                    }
                     Spacer()
-                    Text("CPU")
+                    VStack{
+                        
+                        Text("CPU")
+                            .padding(.bottom, 10.0)
+                        Text("0")
+                            .font(.largeTitle)
+                    }
                     Spacer()
+                   
                 }
-                HStack{
-                    Spacer()
-                    Text("0")
-                    Spacer()
-                    Text("0")
-                    Spacer()
-                }
-                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                Spacer()
+                
+                    .font(.headline)
                     
             }
             .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
