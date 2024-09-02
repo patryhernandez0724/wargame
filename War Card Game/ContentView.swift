@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        
         ZStack{
         Image("background-plain")
                 .resizable()
@@ -27,7 +28,12 @@ struct ContentView: View {
                 }
                 Spacer()
                 
-                Image("button")
+                Button(action: {
+                    deal()
+                }, label: {
+                    Image("button")
+                })
+            
                 Spacer()
                 HStack{
                     Spacer()
@@ -59,6 +65,10 @@ struct ContentView: View {
                 
         }
        
+    }
+    
+    func deal(){
+       print("Deal cards")
     }
 }
 
