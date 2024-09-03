@@ -10,14 +10,14 @@ import SwiftUI
 struct ContentView: View {
     @State var playerCard = "card2"
     @State var cpuCard = "card13"
-    var playerScore = 0
-    var cpuScore = 0
+    @State var playerScore = 0
+    @State var cpuScore = 0
     
     
     var body: some View {
         
         ZStack{
-        Image("background-plain")
+            Image("background-plain")
                 .resizable()
                 .ignoresSafeArea()
             VStack {
@@ -39,7 +39,7 @@ struct ContentView: View {
                 }, label: {
                     Image("button")
                 })
-            
+                
                 Spacer()
                 HStack{
                     Spacer()
@@ -59,29 +59,41 @@ struct ContentView: View {
                             .font(.largeTitle)
                     }
                     Spacer()
-                   
+                    
                 }
                 Spacer()
                 
                     .font(.headline)
-                    
+                
             }
             .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
             .foregroundColor(.white)
-                
+            
         }
-       
+        
     }
     
     func deal(){
-       //Ransomize the players card
-        playerCard = "card" + String(Int.random(in: 2...14))
-    // Randomize de cpu cars
-        cpuCard = "card" + String(Int.random(in: 2...14))
-     // update the score
+        //Randomize the players card
+        var playerCardValue = Int.random(in: 2...14)
+        playerCard = "card" + String(playerCardValue)
+        // Randomize de cpu cars
+        var cpuCardValue = Int.random(in: 2...14)
+        cpuCard = "card" + String(cpuCardValue)
+        // update the score
+        if playerCardValue > cpuCardValue{
+            playerScore += 1
+        }
+        else if cpuCardValue > playerCardValue{
+            cpuScore += 1
+        }
+        else{
+        playerScore += 1
+            cpuScore += 1
+        }
     }
 }
-
 #Preview {
     ContentView()
 }
+
